@@ -1,8 +1,9 @@
 import React from 'react'
+import Title from '../components/Title'
 
 const PermissionService = props => (
   <div>
-    <h1>Permission Service</h1>
+    <Title>Permission Service</Title>
     <ul>
       <li>
         <label>

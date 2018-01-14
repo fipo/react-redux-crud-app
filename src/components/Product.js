@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { deleteProduct } from '../actions/productActions'
+import Title from '../components/Title'
 import glamorous from 'glamorous'
 import variables from '../styles/variables'
 import Delete from './Delete'
@@ -16,12 +17,6 @@ const StyledProduct = glamorous.div({
   border: `1px solid ${variables.grey}`,
   marginBottom: 5,
   padding: 5
-})
-
-const StyledTitle = glamorous.h1({
-  fontWeight: variables.title.weight,
-  fontSize: variables.title.fontSize,
-  marginBottom: 5
 })
 
 class Product extends Component {
@@ -41,7 +36,7 @@ class Product extends Component {
     const { id, name, price, currency, permissions } = this.props
     return (
       <StyledProduct>
-        <StyledTitle>{name}</StyledTitle>
+        <Title>{name}</Title>
         <p>
           {currency} {price}
         </p>
