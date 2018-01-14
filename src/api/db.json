@@ -1,0 +1,28 @@
+{
+  "products": [
+    {
+      "id": 111,
+      "name": "TV",
+      "price": 100,
+      "currency": "USD"
+    },
+    {
+      "id": 621,
+      "name": "SSD",
+      "price": 100,
+      "currency": "USD"
+    },
+    {
+      "id": 275,
+      "name": "IPhone 8",
+      "price": 1800,
+      "currency": "BGN"
+    }
+  ],
+  "permissions": [
+    "CREATE",
+    "READ",
+    "UPDATE",
+    "DELETE"
+  ]
+}

@@ -1,21 +1,25 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
+import './styles/global.css'
+import { Provider } from 'react-redux'
+import store from './store'
+import Main from './layouts/Main'
+import ProductListContainer from './containers/ProductListContainer'
+import CreateProductContainer from './containers/CreateProductContainer'
+import PermissionService from './components/PermissionService'
 
-class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
-      </div>
-    );
-  }
-}
+import { getProducts } from './actions/productActions'
+import { getPermissions } from './actions/permissionActions'
+store.dispatch(getPermissions())
+store.dispatch(getProducts())
 
-export default App;
+const App = () => (
+  <Provider store={store}>
+    <Main>
+      <CreateProductContainer />
+      <ProductListContainer />
+      <PermissionService />
+    </Main>
+  </Provider>
+)
+
+export default App
