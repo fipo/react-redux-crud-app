@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import CreateProduct from '../components/ProductForm'
 import { createProduct } from '../actions/productActions'
 import { capitalize } from '../utils/textTransform'
+import { hasCreatePermission } from '../utils/hasPermission'
 
 class CreateProductContainer extends Component {
   state = {
@@ -40,14 +41,22 @@ class CreateProductContainer extends Component {
 
   render() {
     return (
-      <CreateProduct
-        {...this.state}
-        handleSubmit={this.handleSubmit}
-        handleChange={this.handleChange}
-      />
+      <div>
+        {hasCreatePermission(this.props.permissions) ? (
+          <CreateProduct
+            {...this.state}
+            handleSubmit={this.handleSubmit}
+            handleChange={this.handleChange}
+          />
+        ) : (
+          <p>"You don't have the CREATE permission"</p>
+        )}
+      </div>
     )
   }
 }
+
+const mapStateToProps = state => ({ permissions: state.permissions })
 
 const mapDispatchToProps = dispatch => ({
   handleSubmitForm(payload) {
@@ -55,4 +64,6 @@ const mapDispatchToProps = dispatch => ({
   }
 })
 
-export default connect(null, mapDispatchToProps)(CreateProductContainer)
+export default connect(mapStateToProps, mapDispatchToProps)(
+  CreateProductContainer
+)
