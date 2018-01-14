@@ -1,3 +1,4 @@
+import { API_URL } from '../api'
 import {
   GET_PRODUCTS,
   CREATE_PRODUCT,
@@ -9,7 +10,7 @@ import axios from 'axios'
 export function getProducts() {
   return dispatch => {
     axios
-      .get('http://localhost:8000/products')
+      .get(`${API_URL}/products`)
       .then(response => dispatch(getProductsSuccess(response.data)))
       .catch(error => console.error('getAPIProducts failed:', error))
   }
@@ -22,7 +23,7 @@ export function getProductsSuccess(payload) {
 export function createProduct(payload) {
   return dispatch => {
     axios
-      .post('http://localhost:8000/products', payload)
+      .post(`${API_URL}/products`, payload)
       .then(() => dispatch(createProductSuccess(payload)))
       .catch(error => console.error('createProduct failed:', error))
   }
@@ -35,7 +36,7 @@ export function createProductSuccess(payload) {
 export function updateProduct(payload) {
   return dispatch => {
     axios
-      .put(`http://localhost:8000/products/${payload.id}`, payload)
+      .put(`${API_URL}/products/${payload.id}`, payload)
       .then(() => dispatch(updateProductSuccess(payload)))
       .catch(error => console.error('updateProduct failed:', error))
   }
@@ -48,7 +49,7 @@ export function updateProductSuccess(payload) {
 export function deleteProduct(id) {
   return dispatch => {
     axios
-      .delete(`http://localhost:8000/products/${id}`)
+      .delete(`${API_URL}/products/${id}`)
       .then(() => dispatch(deleteProductSuccess(id)))
       .catch(error => console.error('deleteProduct failed:', error))
   }

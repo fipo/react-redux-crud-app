@@ -5,7 +5,7 @@ import store from './store'
 import Main from './layouts/Main'
 import ProductListContainer from './containers/ProductListContainer'
 import CreateProductContainer from './containers/CreateProductContainer'
-import PermissionService from './components/PermissionService'
+import PermissionServiceContainer from './containers/PermissionServiceContainer'
 
 import { getProducts } from './actions/productActions'
 import { getPermissions } from './actions/permissionActions'
@@ -17,7 +17,7 @@ const App = () => (
     <Main>
       <CreateProductContainer />
       <ProductListContainer />
-      <PermissionService />
+      <PermissionServiceContainer />
     </Main>
   </Provider>
 )

@@ -20,9 +20,9 @@
     }
   ],
   "permissions": [
-    "CREATE",
-    "READ",
-    "UPDATE",
-    "DELETE"
+    {
+      "id": 1,
+      "options": ["CREATE", "READ", "UPDATE", "DELETE"]
+    }
   ]
 }
