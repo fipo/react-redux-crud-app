@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 import UpdateProductContainer from '../containers/UpdateProductContainer'
+import Title from './Title'
 import glamorous from 'glamorous'
 import variables from '../styles/variables'
 
@@ -14,13 +16,15 @@ const StyledEditForm = glamorous.div('x', props => {
   }
 })
 
-const Title = glamorous.h2({
-  fontSize: variables.title.fontSize,
-  fontWeight: variables.title.weight,
-  marginBottom: 10
-})
-
 class Update extends Component {
+  static propTypes = {
+    id: PropTypes.number.isRequired,
+    name: PropTypes.string.isRequired,
+    price: PropTypes.number.isRequired,
+    currency: PropTypes.string.isRequired,
+    permissions: PropTypes.array.isRequired
+  }
+
   state = {
     visibleEditForm: false
   }
