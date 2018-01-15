@@ -2,6 +2,8 @@
 
 This App implements common CRUD operations over the API.
 
+![react redux crud app](https://github.com/fipo/react-redux-crud-app/raw/master/public/ScreenShot.png)
+
 ## Setup
 
 You have to setup the project first
